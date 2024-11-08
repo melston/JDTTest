@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-17">
+		<attributes>
+			<attribute name="module" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="D:/Projects/Test/Java/JDTTest/libs/org.eclipse.jdt.core_3.37.0.v20240503-1629.jar" sourcepath="D:/Projects/Test/Java/JDTTest/libs/org.eclipse.jdt.core.source_3.37.0.v20240503-1629.jar"/>
+	<classpathentry kind="lib" path="D:/Projects/Test/Java/JDTTest/libs/org.eclipse.jdt.core.compiler.batch_3.37.0.v20240503-1629.jar"/>
+	<classpathentry kind="lib" path="D:/Projects/Test/Java/JDTTest/libs/org.eclipse.jdt.core.formatterapp_1.2.200.v20231130-1111.jar"/>
+	<classpathentry kind="lib" path="D:/Projects/Test/Java/JDTTest/libs/org.eclipse.jdt.core.manipulation_1.20.0.v20240222-1643.jar"/>
+	<classpathentry kind="lib" path="D:/Projects/Test/Java/JDTTest/libs/org.eclipse.core.runtime_3.30.0.v20231102-0719.jar" sourcepath="D:/Projects/Test/Java/JDTTest/libs/org.eclipse.core.runtime.source_3.30.0.v20231102-0719.jar"/>
+	<classpathentry kind="lib" path="D:/Projects/Test/Java/JDTTest/libs/org.eclipse.equinox.common_3.18.200.v20231106-1826.jar"/>
+	<classpathentry kind="lib" path="D:/Projects/Test/Java/JDTTest/libs/org.eclipse.core.resources_3.20.0.v20240503-1509.jar" sourcepath="D:/Projects/Test/Java/JDTTest/libs/org.eclipse.core.resources.source_3.20.0.v20240503-1509.jar"/>
+	<classpathentry kind="lib" path="D:/Projects/Test/Java/JDTTest/libs/org.eclipse.core.jobs_3.15.100.v20240503-1502.jar"/>
+	<classpathentry kind="lib" path="D:/Projects/Test/Java/JDTTest/libs/org.osgi.service.prefs_1.1.2.202109301733.jar"/>
+	<classpathentry kind="lib" path="D:/Projects/Test/Java/JDTTest/libs/org.eclipse.osgi_3.18.600.v20231110-1900.jar"/>
+	<classpathentry kind="lib" path="D:/Projects/Test/Java/JDTTest/libs/org.eclipse.core.contenttype_3.9.200.v20230914-0751.jar"/>
+	<classpathentry kind="lib" path="D:/Projects/Test/Java/JDTTest/libs/org.eclipse.equinox.preferences_3.10.400.v20231102-2218.jar"/>
+	<classpathentry kind="lib" path="D:/Projects/Test/Java/JDTTest/libs/org.eclipse.osgi.source_3.18.600.v20231110-1900.jar"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>
