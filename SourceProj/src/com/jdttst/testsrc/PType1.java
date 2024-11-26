@@ -1,4 +1,4 @@
-package com.elsoft.testsrc;
+package com.jdttst.testsrc;
 
 public interface PType1<T> {
 	

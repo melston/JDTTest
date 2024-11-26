@@ -15,9 +15,8 @@
 	<classpathentry kind="lib" path="D:/Projects/Test/Java/JDTTest/libs/org.eclipse.core.resources_3.20.0.v20240503-1509.jar" sourcepath="D:/Projects/Test/Java/JDTTest/libs/org.eclipse.core.resources.source_3.20.0.v20240503-1509.jar"/>
 	<classpathentry kind="lib" path="D:/Projects/Test/Java/JDTTest/libs/org.eclipse.core.jobs_3.15.100.v20240503-1502.jar"/>
 	<classpathentry kind="lib" path="D:/Projects/Test/Java/JDTTest/libs/org.osgi.service.prefs_1.1.2.202109301733.jar"/>
-	<classpathentry kind="lib" path="D:/Projects/Test/Java/JDTTest/libs/org.eclipse.osgi_3.18.600.v20231110-1900.jar"/>
+	<classpathentry kind="lib" path="D:/Projects/Test/Java/JDTTest/libs/org.eclipse.osgi_3.18.600.v20231110-1900.jar" sourcepath="D:/Projects/Test/Java/JDTTest/libs/org.eclipse.osgi.source_3.18.600.v20231110-1900.jar"/>
 	<classpathentry kind="lib" path="D:/Projects/Test/Java/JDTTest/libs/org.eclipse.core.contenttype_3.9.200.v20230914-0751.jar"/>
 	<classpathentry kind="lib" path="D:/Projects/Test/Java/JDTTest/libs/org.eclipse.equinox.preferences_3.10.400.v20231102-2218.jar"/>
-	<classpathentry kind="lib" path="D:/Projects/Test/Java/JDTTest/libs/org.eclipse.osgi.source_3.18.600.v20231110-1900.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

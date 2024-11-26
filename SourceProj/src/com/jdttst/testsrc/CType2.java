@@ -1,4 +1,4 @@
-package com.elsoft.testsrc;
+package com.jdttst.testsrc;
 
 import java.util.Map;
 

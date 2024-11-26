@@ -1,4 +1,4 @@
-package com.elsoft;
+package com.jdttst;
 
 import java.io.File;
 import java.io.IOException;
@@ -17,11 +17,13 @@ import org.osgi.framework.Bundle;
 import org.osgi.framework.BundleException;
 import org.osgi.framework.FrameworkUtil;
 
+//import com.jdttst.visitors.TypeVisitor;
+
 public class App2 {
     
     public static void main(String[] args) {
         try {
-            TypeVisitor tpv = new TypeVisitor();
+            //TypeVisitor tpv = new TypeVisitor();
             
             // Step 1: Set up workspace location
             String workspaceRootPath = "..";
@@ -74,18 +76,19 @@ public class App2 {
         }
     }
 
-
     private static void initializePlatform(File workspaceRoot) 
             throws BundleException, IllegalStateException, IOException {
         // Initialize the OSGi platform if necessary
         Bundle bundle = FrameworkUtil.getBundle(App2.class);
         if (bundle != null) {
+        	System.out.println("Starting bundle");
             bundle.start();
         }
 
         // Start the ResourcesPlugin bundle manually to ensure it's available
         Bundle resourcesPluginBundle = Platform.getBundle(ResourcesPlugin.PI_RESOURCES);
         if (resourcesPluginBundle != null && resourcesPluginBundle.getState() != Bundle.ACTIVE) {
+        	System.out.println("Starting plugin bundle");
             resourcesPluginBundle.start(Bundle.START_TRANSIENT);
         }
 

@@ -1,4 +1,4 @@
-package com.elsoft;
+package com.jdttst;
 
 import java.io.IOException;
 import java.nio.file.Files;
@@ -13,6 +13,8 @@ import org.eclipse.jdt.core.dom.ASTParser;
 import org.eclipse.jdt.core.dom.ASTVisitor;
 import org.eclipse.jdt.core.dom.CompilationUnit;
 import org.eclipse.jdt.core.dom.FileASTRequestor;
+
+import com.jdttst.visitors.TypeVisitor;
 
 public class App {
     
