@@ -53,6 +53,7 @@ public class DirWalker extends SimpleFileVisitor<Path> {
 	 * of the file after processing) to System.err after a visit.
 	 */
 	public static BiFunction<Path, List<IProblem>, Exception> printProblemsAction = (p, s) -> {
+		if (s.size() <= 0) return null;
 		System.err.println("-------------------------");
 		System.err.println(p.toString());
 		s.stream().forEach(prob -> System.err.println("Error: " + prob.getMessage()));

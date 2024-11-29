@@ -13,66 +13,77 @@ import org.eclipse.jdt.core.dom.TypeDeclaration;
 public class TypeDB {
 	
 	private static String lookupKey(ITypeBinding tb) {
-		String key = tb.getQualifiedName();
-		key = key.replaceFirst("<.*>", "");
-		return key;
-		//return tb.getKey();
-	}
-			
-	private static TypeDB theDB;
-	static 
-	{
-		theDB = new TypeDB();
-	}
-
-	/**
-	 * Access the one and only DB
-	 * @return
-	 */
-	public static TypeDB instance() {
-		return theDB;
+		return tb.getErasure().getQualifiedName();
 	}
 	
 	private TypeDB() {}
 	
-	// I tried using ITypeBinding objects as the key but their .equals() method
-	// simply check for object equality.  So this is an attempt to use the String
-	// returned by the getKey() method on the ITypeBinding object for lookup.
-	// That isn't working either.
 	private static HashMap<String, TypeInfo> types = new HashMap<>();
 	
 	public static void addType(AbstractTypeDeclaration atd, List<ImportDeclaration> imports) {
-		if (atd instanceof TypeDeclaration td) theDB.addTypeDecl(td, imports);
-		if (atd instanceof EnumDeclaration ed) theDB.addEnumDecl(ed);
+		if (atd instanceof TypeDeclaration td) addTypeDecl(td, imports);
+		if (atd instanceof EnumDeclaration ed) addEnumDecl(ed);
 	}
 	
+	/**
+	 * Get a {@link TypeInfo} object for the {@link org.eclipse.jdt.core.dom.ITypeBinding}.
+	 * If one does not exist in the database then create a new one, add it to the database, and
+	 * return it.
+	 * @param tb
+	 * @return
+	 */
 	public static TypeInfo getOrAdd(ITypeBinding tb) {
 		TypeInfo ti = getTypeInfoFor(tb);
 		if (ti == null) {
-			ti = theDB.addType(tb);
+			ti = addType(tb);
 		}
 		return ti;
 	}
 
-	public static Stream<TypeInfo> getAllTypes() {
-		return types.values().stream();
+	/**
+	 * Get a {@link TypeInfo} object for the {@link org.eclipse.jdt.core.dom.ITypeBinding}.
+	 * If one does not exist in the database then create a new one but don't add it to the DB.
+	 * @param tb
+	 * @return
+	 */
+	public static TypeInfo getOrNew(ITypeBinding tb) {
+		TypeInfo ti = getTypeInfoFor(tb);
+		if (ti == null) {
+			ti = new TypeInfo(tb);
+		}
+		return ti;
 	}
 
+	/**
+	 * Get a {@link TypInfo} object associated with the provided 
+	 * {@link org.eclipse.jdt.core.dom.ITypeBinding} object.  If one does not exist in
+	 * the database then return null.
+	 * @param tb
+	 * @return
+	 */
 	public static TypeInfo getTypeInfoFor(ITypeBinding tb) {
 		return types.get(lookupKey(tb)); // Caution - can be null.
 	}
 	
-	private void addTypeDecl(TypeDeclaration td, List<ImportDeclaration> imports) {
+	/**
+	 * Return a {@link Stream} of all {@link TypeInfo} objects in the database.
+	 * @return
+	 */
+	public static Stream<TypeInfo> getAllTypes() {
+		return types.values().stream();
+	}
+
+	private static void addTypeDecl(TypeDeclaration td, List<ImportDeclaration> imports) {
 		ITypeBinding tb = td.resolveBinding();
 		types.put(lookupKey(tb), new TypeInfo(td, imports));
 	}
 	
-	private void addEnumDecl(EnumDeclaration ed) {
+	private static void addEnumDecl(EnumDeclaration ed) {
 		ITypeBinding tb = ed.resolveBinding();
 		types.put(lookupKey(tb), new TypeInfo(ed));
 	}
 
-	private TypeInfo addType(ITypeBinding tb) {
+	private static TypeInfo addType(ITypeBinding tb) {
 		TypeInfo rv = new TypeInfo(tb);
 		types.put(lookupKey(tb), rv);
 		return rv;

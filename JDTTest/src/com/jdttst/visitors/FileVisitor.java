@@ -31,7 +31,7 @@ public class FileVisitor {
 		Result<Path> res = DirWalker.walkDirs(root,
 				DirWalker.javaOnly,
 				doProcessFile.apply(root),
-				DirWalker.noPostAction);
+				DirWalker.printProblemsAction);
 		res.forEachOrFail(p -> {/* nothing to do */})
 			.forEach(s -> msgs.add("Error: " + s));
 		return msgs.stream();

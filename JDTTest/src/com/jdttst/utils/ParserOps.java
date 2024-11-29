@@ -37,12 +37,6 @@ public class ParserOps {
 		return parser.createAST(null);
 	}
 	
-	public static String getName(Object t) {
-		if (t instanceof AbstractTypeDeclaration a)
-			return a.getName().toString();
-		return t.toString();
-	}
-
 	static String getFileContents(String path) {
 	    String source;
 	    try {
